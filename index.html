@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>The Hidden Damp Check - Beneath the Surface by The Snag Tag</title>
+<meta name="description" content="8 real checks for hidden damp, for home buyers or home owners. Free, 5 minutes, no signup - from The Snag Tag.">
+<style>
+:root{
+  --accent:#0B7F97; --accent-dark:#2D5B9A; --accent-rgb:11,127,151;
+}
+body[data-mode="light"], body{
+  --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#E8F0FA; --tile:#F7FAFD;
+  --ink:#16243F; --ink-mid:#44546F; --ink-soft:#6B7A93; --line:#C9D6E8;
+  --navy:#16243F; --navy-2:#1E3154;
+  --safe:#2E7D4F; --safe-bg:#E7F5EC;
+  --flag:#A15C00; --flag-bg:#FFF3E0;
+  --grid:rgba(45,91,154,.06);
+}
+body[data-mode="dark"]{
+  --bg:#0F1A2C; --surface:#15233A; --surface-2:#1C3150; --tile:#122036;
+  --ink:#E6EEF9; --ink-mid:#B8C6DB; --ink-soft:#8C9BB2; --line:#2F4466;
+  --navy:#0B1424; --navy-2:#0F1A2C;
+  --safe:#81C995; --safe-bg:#1B3326;
+  --flag:#FFB74D; --flag-bg:#3A2C17;
+  --grid:rgba(140,180,230,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  font-family:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  font-size:16px; line-height:1.55; -webkit-font-smoothing:antialiased;
+  transition:background .25s,color .25s;
+}
+h1,h2,h3,h4{margin:0}
+.mono{font-family:ui-monospace,"SFMono-Regular","Cascadia Mono","Roboto Mono",Consolas,monospace}
+::selection{background:rgba(var(--accent-rgb),.35)}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+
+.topbar{
+  background:var(--navy); color:#fff; border-bottom:3px solid var(--accent);
+  padding:12px 18px; display:flex; align-items:center; justify-content:space-between;
+  position:sticky; top:0; z-index:20;
+}
+.topbar-left{display:flex; align-items:center; gap:10px}
+.topbar-logo{width:32px;height:32px;border-radius:6px;border:1.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex:none}
+.topbar-logo svg{width:18px;height:18px}
+.topbar-name{font-weight:700; font-size:16px; letter-spacing:-.2px}
+.topbar-name span{color:#5CC6DA}
+.topbar-sub{font-size:11px; color:rgba(255,255,255,.65); font-weight:500; letter-spacing:.06em; text-transform:uppercase}
+.topbar-tools{display:flex; gap:6px}
+.tool-btn{background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.2); color:#fff; border-radius:6px; padding:7px 10px; font-size:13px; cursor:pointer; font-weight:600; display:flex; align-items:center; gap:5px}
+.tool-btn:hover{background:rgba(255,255,255,.17)}
+
+.progress-wrap{position:sticky; top:59px; z-index:19; background:var(--bg); padding:10px 18px 8px; border-bottom:1px solid var(--line)}
+.progress-track{height:6px; background:var(--surface-2); border-radius:99px; overflow:hidden; max-width:640px; margin:0 auto}
+.progress-fill{height:100%; background:linear-gradient(90deg,var(--accent),var(--accent-dark)); border-radius:99px; transition:width .35s ease; width:0%}
+.progress-label{max-width:640px; margin:6px auto 0; font-size:12px; color:var(--ink-soft); font-weight:600; display:flex; justify-content:space-between}
+
+main{max-width:640px; margin:0 auto; padding:28px 20px 90px}
+.screen{display:none; animation:fade .35s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:translateY(0)}}
+
+.hook-badge{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--accent-dark); font-weight:700; font-size:12.5px; padding:5px 12px; border-radius:99px; margin-bottom:18px}
+body[data-mode="dark"] .hook-badge{color:#8CB4E6}
+.hook h1{font-size:clamp(1.7rem,6vw,2.3rem); line-height:1.15; margin-bottom:14px}
+.hook h1 em{font-style:normal; color:var(--accent)}
+.hook p.lede{font-size:1.05rem; color:var(--ink-mid); margin-bottom:22px}
+.hook-facts{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:26px}
+.hook-fact{background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:14px 10px; text-align:center}
+.hook-fact .n{font-size:1.4rem; font-weight:700; color:var(--accent)}
+.hook-fact .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  border-radius:10px; padding:15px 22px; font-size:16px; font-weight:700; cursor:pointer;
+  border:none; width:100%; text-align:center; text-decoration:none;
+}
+.btn-primary{background:linear-gradient(135deg,var(--accent),var(--accent-dark)); color:#fff; box-shadow:0 4px 14px rgba(var(--accent-rgb),.3)}
+.btn-primary:hover{filter:brightness(1.07)}
+.btn-ghost{background:var(--surface); color:var(--ink); border:1.5px solid var(--line)}
+.btn-ghost:hover{border-color:var(--accent)}
+.hint-row{display:flex; align-items:center; gap:8px; margin-top:14px; font-size:13px; color:var(--ink-soft); justify-content:center; text-align:center}
+
+.choose-card{background:var(--surface); border:1.5px solid var(--line); border-radius:12px; padding:18px 18px; margin-bottom:12px; cursor:pointer; transition:border-color .15s}
+.choose-card:hover{border-color:var(--accent)}
+.choose-card .cc-label{font-size:1.1rem; font-weight:700; margin-bottom:3px}
+.choose-card .cc-range{font-size:13px; color:var(--ink-soft); font-weight:600}
+
+.zone-chip{display:inline-flex; align-items:center; gap:6px; background:var(--surface); border:1px solid var(--line); color:var(--ink-mid); font-weight:700; font-size:11.5px; text-transform:uppercase; letter-spacing:.06em; padding:5px 11px; border-radius:99px; margin-bottom:16px}
+.zone-chip .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+
+.check-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:24px 22px; box-shadow:0 2px 12px rgba(22,36,63,.06)}
+.check-card .verb{font-size:12.5px; font-weight:700; color:var(--accent); text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px}
+.check-card h2{font-size:1.35rem; line-height:1.3; margin-bottom:10px}
+.check-card .prompt{font-size:1rem; color:var(--ink-mid); margin-bottom:20px}
+.check-card .prompt strong{color:var(--ink)}
+.opts{display:flex; flex-direction:column; gap:10px; margin-bottom:4px}
+.opt{
+  display:flex; align-items:center; gap:12px; background:var(--tile); border:1.5px solid var(--line);
+  border-radius:10px; padding:14px 16px; cursor:pointer; font-size:15px; font-weight:600; color:var(--ink);
+  transition:border-color .15s, background .15s;
+}
+.opt:hover{border-color:var(--accent)}
+.opt .ic{width:22px;height:22px;border-radius:50%;border:2px solid var(--line); flex:none; display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:800; color:transparent}
+.opt.selected{border-color:var(--accent-dark)}
+.opt.selected.safe{background:var(--safe-bg); border-color:var(--safe)}
+.opt.selected.safe .ic{border-color:var(--safe); color:var(--safe)}
+.opt.selected.flag{background:var(--flag-bg); border-color:var(--flag)}
+.opt.selected.flag .ic{border-color:var(--flag); color:var(--flag)}
+.change-hint{font-size:12.5px; color:var(--ink-soft); margin:10px 0 0}
+
+.reveal{margin-top:18px; border-radius:10px; padding:16px 18px; border-left:4px solid var(--accent-dark); background:var(--surface-2); display:none}
+.reveal.show{display:block; animation:fade .3s ease}
+.reveal .rk{font-size:11.5px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent-dark); margin-bottom:6px}
+.reveal.good{border-left-color:var(--safe); background:var(--safe-bg)}
+.reveal.good .rk{color:var(--safe)}
+.reveal.bad{border-left-color:var(--flag); background:var(--flag-bg)}
+.reveal.bad .rk{color:var(--flag)}
+.reveal p{margin:0 0 8px; font-size:14.5px; color:var(--ink-mid)}
+.reveal p:last-child{margin-bottom:0}
+.reveal .src{font-size:12.5px; color:var(--ink-soft); font-style:italic}
+
+.nav-row{display:flex; gap:10px; margin-top:22px}
+.nav-row .btn{flex:1}
+.nav-back{background:transparent; color:var(--ink-soft); border:none; font-size:13px; font-weight:600; cursor:pointer; padding:8px; margin-top:10px; width:100%; text-align:center}
+
+.result-head{text-align:center; margin-bottom:24px}
+.result-head .kicker{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft)}
+.result-head h1{font-size:1.8rem; margin:8px 0 4px}
+.result-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:22px 0 26px}
+.rstat{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px 8px; text-align:center}
+.rstat .n{font-size:1.9rem; font-weight:700}
+.rstat.total .n{color:var(--ink)}
+.rstat.safe .n{color:var(--safe)}
+.rstat.flag .n{color:var(--flag)}
+.rstat .t{font-size:11.5px; color:var(--ink-soft); font-weight:600; margin-top:2px}
+
+.zone-bars{display:flex; flex-direction:column; gap:10px; margin-bottom:26px}
+.zbar-row{display:flex; align-items:center; gap:10px}
+.zbar-label{width:132px; flex:none; font-size:12.5px; font-weight:600; color:var(--ink-mid); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.zbar-track{flex:1; height:9px; background:var(--surface-2); border-radius:99px; overflow:hidden}
+.zbar-fill{height:100%; border-radius:99px; background:var(--safe)}
+.zbar-fill.partial{background:var(--flag)}
+.zbar-count{width:38px; flex:none; text-align:right; font-size:12.5px; font-weight:700; color:var(--ink-soft)}
+
+.section-h{font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); margin:26px 0 12px}
+.finding{display:flex; gap:12px; padding:13px 0; border-bottom:1px solid var(--line)}
+.finding:last-child{border-bottom:none}
+.finding .fic{width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800}
+.finding.flag .fic{background:var(--flag-bg); color:var(--flag)}
+.finding.safe .fic{background:var(--safe-bg); color:var(--safe)}
+.finding .ft{font-weight:700; font-size:14.5px; margin-bottom:2px}
+.finding .fd{font-size:13.5px; color:var(--ink-soft); line-height:1.5}
+
+.quickwin{background:var(--surface); border:1.5px solid var(--accent); border-radius:14px; padding:20px; margin:8px 0 26px}
+.quickwin .qk{display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--accent); margin-bottom:8px}
+.quickwin h3{font-size:1.1rem; margin-bottom:8px}
+.quickwin p{font-size:14.5px; color:var(--ink-mid); margin:0}
+
+.bridge{background:var(--navy); border-top:3px solid var(--accent); color:#fff; border-radius:14px; padding:26px 22px; margin:10px 0 20px}
+.bridge .bk{font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#5CC6DA}
+.bridge h3{font-size:1.4rem; margin:8px 0 12px; line-height:1.3}
+.bridge p{font-size:14.5px; color:rgba(255,255,255,.82); margin:0 0 14px}
+.bridge .still{background:rgba(255,255,255,.07); border-radius:10px; padding:14px 16px; margin:14px 0}
+.bridge .still h4{font-size:12.5px; text-transform:uppercase; letter-spacing:.04em; color:rgba(255,255,255,.6); margin-bottom:8px}
+.bridge .still ul{margin:0; padding-left:18px; font-size:13.5px; color:rgba(255,255,255,.85)}
+.bridge .still li{margin-bottom:5px}
+.bridge .btn-primary{margin-top:6px}
+.bridge .note{font-size:11.5px; color:rgba(255,255,255,.5); margin-top:10px; text-align:center}
+
+.restart-row{text-align:center; margin-top:8px}
+.restart-row button{background:none; border:none; color:var(--ink-soft); font-size:13px; font-weight:600; text-decoration:underline; cursor:pointer}
+
+.disclaimer{font-size:12px; color:var(--ink-soft); text-align:center; margin-top:30px; padding-top:18px; border-top:1px solid var(--line); line-height:1.6}
+</style>
+</head>
+<body data-mode="light">
+
+<div class="topbar">
+  <div class="topbar-left">
+    <span class="topbar-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#5CC6DA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 12c-1.6 2-2.4 3.2-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1-.8-2.2-2.4-4.2z"/></svg></span>
+    <div>
+      <div class="topbar-name">Beneath the <span>Surface</span></div>
+      <div class="topbar-sub">by The Snag Tag &middot; Hidden Damp Check</div>
+    </div>
+  </div>
+  <div class="topbar-tools">
+    <button class="tool-btn" id="modeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
+  </div>
+</div>
+
+<div class="progress-wrap" id="progressWrap" style="display:none">
+  <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label"><span id="progressText">Check 1</span><span id="progressPct">0%</span></div>
+</div>
+
+<main>
+
+  <section class="screen active" id="screen-hook">
+    <div class="hook">
+      <span class="hook-badge">🏠 For home buyers and home owners</span>
+      <h1>Look where damp <em>actually hides.</em></h1>
+      <p class="lede">Real checks, pulled from The Snag Tag's Beneath the Surface Dampness Investigation tool. No signup, no scare tactics, just a fast, honest look at what most people miss.</p>
+      <div class="hook-facts">
+        <div class="hook-fact"><div class="n">8</div><div class="t">real checks</div></div>
+        <div class="hook-fact"><div class="n">~5</div><div class="t">minutes</div></div>
+        <div class="hook-fact"><div class="n">Free</div><div class="t">to start</div></div>
+      </div>
+      <button class="btn btn-primary" id="startBtn" type="button">Start the Check &rarr;</button>
+      <div class="hint-row">Free. No account. Your answers stay on this device.</div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-choose">
+    <div class="hook">
+      <h1 style="font-size:1.6rem">Which fits you right now?</h1>
+      <p class="lede" style="margin-bottom:20px">This decides which real checks you'll see today. Pick the one that fits.</p>
+      <div class="choose-card" data-key="buyer"><div class="cc-label">I'm viewing or buying a home</div><div class="cc-range">Pre-Purchase checks</div></div>
+      <div class="choose-card" data-key="owner"><div class="cc-label">I live in or look after a home</div><div class="cc-range">Maintenance checks for owners, tenants and landlords</div></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-check">
+    <span class="zone-chip"><span class="dot"></span><span id="chkZone">Zone</span></span>
+    <div class="check-card">
+      <div class="verb" id="chkVerb">Check</div>
+      <h2 id="chkTitle"></h2>
+      <p class="prompt" id="chkPrompt"></p>
+      <div class="opts" id="chkOpts"></div>
+      <p class="change-hint">Pick either one. You can change your answer any time before you move on.</p>
+      <div class="reveal" id="chkReveal">
+        <div class="rk" id="revealKicker">Here's what actually matters</div>
+        <p id="revealWhy"></p>
+        <p id="revealHow"></p>
+        <p class="src" id="revealSrc"></p>
+      </div>
+      <div class="nav-row" id="chkNavRow" style="display:none">
+        <button class="btn btn-primary" id="chkNextBtn" type="button">Next check &rarr;</button>
+      </div>
+    </div>
+    <button class="nav-back" id="chkBackBtn" type="button">&larr; back</button>
+    <button class="nav-back" id="chkChooseBtn" type="button" style="opacity:.65">Choose a different check</button>
+  </section>
+
+  <section class="screen" id="screen-result">
+    <div class="result-head">
+      <div class="kicker">Your Hidden Damp Check</div>
+      <h1 id="resultHeadline">Here's what you found</h1>
+    </div>
+
+    <div class="result-stats">
+      <div class="rstat total"><div class="n" id="statTotal">0</div><div class="t">checked today</div></div>
+      <div class="rstat safe"><div class="n" id="statSafe">0</div><div class="t">already sorted</div></div>
+      <div class="rstat flag"><div class="n" id="statFlag">0</div><div class="t">need attention</div></div>
+    </div>
+
+    <div class="zone-bars" id="zoneBars"></div>
+
+    <div class="section-h">What to check today</div>
+    <div id="findingsFlag"></div>
+
+    <div class="section-h">Already sorted</div>
+    <div id="findingsSafe"></div>
+
+    <div class="quickwin" id="quickwin">
+      <div class="qk">&#9889; Quick win - do this now, free</div>
+      <h3 id="qwTitle"></h3>
+      <p id="qwBody"></p>
+    </div>
+
+    <div class="bridge">
+      <div class="bk">The complete system</div>
+      <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
+      <p id="bridgeBody"></p>
+      <div class="still" id="bridgeStill">
+        <h4>Today's check opened part of the picture. Here's what's still closed:</h4>
+        <ul id="bridgeStillList"></ul>
+      </div>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the complete tool &rarr;</a>
+      <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
+      <button class="btn btn-ghost" id="saveResultsBtn" type="button" style="margin-top:12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#fff">Not ready yet? Save my results instead &rarr;</button>
+      <div class="note">Downloads a copy of exactly what you found today, free, no email needed. Nothing here disappears, but nothing reminds you either, so keep it somewhere you'll see it.</div>
+    </div>
+
+    <div class="restart-row"><button id="restartBtn" type="button">&#8634; Start the check again</button></div>
+
+    <div class="disclaimer">This is educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. It is not a building survey and does not diagnose the cause of damp. Building rules and seller duties differ between countries. Always check local requirements and consult a qualified professional for concerns about a specific property.</div>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   SET YOUR GUMROAD LINK HERE (one place, used everywhere)
+   ============================================================ */
+const GUMROAD_URL = "https://snagtag.gumroad.com/l/BTS_Dampness_PRO";
+
+const PRODUCTS = {
+  "buyer": {
+    "label": "Pre-Purchase",
+    "ageRange": "Viewing or buying a home",
+    "accent": "#0B7F97",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "Hidden Places",
+        "verb": "At the viewing",
+        "title": "Did you look behind the furniture on outside walls?",
+        "prompt": "Mould often grows in <strong>cold corners behind furniture</strong>, exactly where a viewing never looks.",
+        "yes": "Yes, I looked behind",
+        "no": "I didn't think to",
+        "why": "Cold corners behind furniture on outside walls are a common place for condensation and mould to develop, and a wardrobe or bed can hide them completely at a viewing.",
+        "how": "Ask the owner or agent if you may look behind large furniture on outside walls, especially wardrobes and beds. Check the wall and the back of the furniture. If you see staining or mould, take one photo of where it is and one close-up.",
+        "standard": "US EPA: mould is frequently found on walls in cold corners behind furniture, where condensation forms.",
+        "tip": "Use your phone torch at a low angle across the wall. Staining and bubbling show up far more clearly in side-light.",
+        "src": "Source: Beneath the Surface - Dampness, Hidden Sweep (Behind furniture) · US EPA Mold Course, Chapter 2"
+      },
+      {
+        "zone": "Signs & Clues",
+        "verb": "Think back",
+        "title": "Did any room smell musty or earthy?",
+        "prompt": "You can suspect mould <strong>even when you can't see it</strong>, if a space smells mouldy.",
+        "yes": "No, it all smelled fresh",
+        "no": "Yes, or I didn't notice",
+        "why": "A musty or earthy smell can be the only sign of hidden mould, for example behind panelling, under flooring or inside cupboards.",
+        "how": "On your next visit, note exactly which room or cupboard smells musty and whether the smell is stronger in enclosed spaces. Open cupboards (with permission) and look underneath sinks. If you suspect hidden mould, US EPA suggests considering an experienced professional.",
+        "standard": "US EPA: you may suspect mould if a building smells mouldy, even if you cannot see it.",
+        "tip": "Strong air fresheners or scented candles in one room are worth noticing. Ask kindly, never assume.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Musty odour) · US EPA Mold Course, Chapter 2"
+      },
+      {
+        "zone": "Signs & Clues",
+        "verb": "At the viewing",
+        "title": "Was one patch or wall freshly painted when the rest wasn't?",
+        "prompt": "An <strong>isolated fresh finish</strong> isn't proof of a problem, but it's always a fair question.",
+        "yes": "No, finishes looked even",
+        "no": "Yes, or I didn't check",
+        "why": "Paint can hide staining for a while. US EPA advises never painting or caulking over mould, so a single freshly painted patch is worth a polite question.",
+        "how": "Note the exact location and take a photo. Ask the seller or agent why that area was repainted and whether there was ever a leak or damp problem there.",
+        "standard": "US EPA: do not paint or caulk mouldy surfaces. Clean and dry first.",
+        "tip": "Compare the ceiling above the patch too. A fresh ceiling patch below a bathroom is a common place to ask about.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Signs of concealment) · US EPA Brief Guide to Mold, Moisture and Your Home"
+      },
+      {
+        "zone": "Water Sources",
+        "verb": "At the viewing",
+        "title": "Did you open the cupboard under the kitchen sink?",
+        "prompt": "Pipe joints and traps under sinks are a classic <strong>slow-leak</strong> spot nobody sees.",
+        "yes": "Yes, and it was dry",
+        "no": "No, or it wasn't dry",
+        "why": "Leaking or condensing water pipes are a common moisture source, and a slow leak under a sink can go unnoticed for a long time.",
+        "how": "With permission, open the sink cupboard. Look for a swollen or stained base board, water marks, rust on fittings or a damp smell. Take a photo of anything you find and ask whether there has been a leak.",
+        "standard": "US EPA: leaking or condensing water pipes are a common source of moisture. Fix plumbing leaks as soon as possible.",
+        "tip": "Press gently on the base board. Swelling or softness in chipboard is easy to feel even when it looks fine.",
+        "src": "Source: Beneath the Surface - Dampness, Hidden Sweep (Under sinks) · US EPA Mold Course, Chapter 2 · US EPA Brief Guide"
+      },
+      {
+        "zone": "Water Sources",
+        "verb": "At the viewing",
+        "title": "Did you look at the ceiling below the bathroom?",
+        "prompt": "Bathroom leaks often show up <strong>one floor down</strong>, as a stain or bubbling paint.",
+        "yes": "Yes, it looked clean",
+        "no": "No, or I saw marks",
+        "why": "Water from a shower, bath or pipe above can travel and appear as a ceiling stain in the room below.",
+        "how": "Look at the ceiling directly under the bathroom, and around light fittings. Photograph any stain, then note what is directly above it. Do not touch light fittings that are stained or damp.",
+        "standard": "US EPA identifies leaking roofs and leaking or condensing water pipes as common moisture sources. Wet electrical items: CDC advises a qualified electrician inspects before power is restored.",
+        "tip": "One photo of the stain, one of what's above it. That pair tells a professional far more than words.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Ceiling staining) · US EPA Mold Course, Chapter 2 · US CDC Electrical Hazards"
+      },
+      {
+        "zone": "Outside the Walls",
+        "verb": "Walk outside",
+        "title": "Does the ground slope away from the walls?",
+        "prompt": "Ground that runs <strong>towards</strong> the building sends rainwater straight to the wall base.",
+        "yes": "Yes, it slopes away",
+        "no": "No, or I didn't look",
+        "why": "Water that collects around the base of a building can move into walls and floors.",
+        "how": "Walk around the outside. Look at where soil, paving or planting meets the wall and which way water would run. Photograph any areas where water would pool against the wall.",
+        "standard": "US EPA: make sure the ground slopes away from the building foundation, so that water does not enter or collect around it.",
+        "tip": "Visit once after rain if you can. Puddles against a wall tell you more than any dry-day viewing.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Ground contact) · US EPA Brief Guide"
+      },
+      {
+        "zone": "Outside the Walls",
+        "verb": "Walk outside",
+        "title": "Did you check the gutters and downpipes from the ground?",
+        "prompt": "Blocked or broken gutters send water <strong>down the wall</strong> instead of away from it.",
+        "yes": "Yes, they looked sound",
+        "no": "No, or I saw problems",
+        "why": "Gutters and downpipes that leak, overflow or discharge against a wall can direct water into or under a building.",
+        "how": "From the ground only, look for overflow staining on walls, gaps or sagging in gutters, plants growing in them, and downpipes ending against the wall. Never climb a ladder at a viewing.",
+        "standard": "US EPA: clean and repair roof gutters regularly. Gutters and downspouts that direct water into or under a building are a moisture source. UK HSE: treat all roofs as fragile until a competent person confirms otherwise.",
+        "tip": "Look for green or dark streaks down the wall below a gutter joint. It's often the clearest clue.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Gutters and downpipes) · US EPA Brief Guide · US EPA Mold Course, Chapter 2 · UK HSE Fragile surfaces"
+      },
+      {
+        "zone": "Ask Before You Buy",
+        "verb": "Think back",
+        "title": "Have you asked about past leaks or damp work?",
+        "prompt": "The history of a home is <strong>evidence too</strong>, and it only takes one question.",
+        "yes": "Yes, I asked",
+        "no": "Not yet",
+        "why": "Past leaks, flooding or damp treatment can explain what you see now, and any reports or guarantees are valuable to have.",
+        "how": "Ask the seller or agent: Has the property had any leaks, flooding or damp problems? Has any damp-proofing or mould treatment been done, by whom, and is there a report or guarantee? Any water damage claims? Get answers in writing where you can.",
+        "standard": "Professional practice. Seller disclosure duties differ between countries, so check with your conveyancer or agent.",
+        "tip": "Ask the same questions by email after the viewing. Written answers are easier to compare and to keep.",
+        "src": "Source: Beneath the Surface - Dampness, Questions for the seller · Professional practice"
+      }
+    ]
+  },
+  "owner": {
+    "label": "Maintenance",
+    "ageRange": "Living in or looking after a home",
+    "accent": "#0B7F97",
+    "accentDark": "#2D5B9A",
+    "checks": [
+      {
+        "zone": "Everyday Moisture",
+        "verb": "Think back",
+        "title": "Do you know your indoor humidity level?",
+        "prompt": "Indoor humidity is the <strong>one number</strong> that tells you if moisture is building up.",
+        "yes": "Yes, usually below 60%",
+        "no": "No idea, or it's higher",
+        "why": "High indoor humidity lets condensation form on cold surfaces, and damp surfaces are where mould grows.",
+        "how": "Place a simple humidity gauge (thermo-hygrometer) in the main rooms and bedroom. Aim to keep humidity below 60%, ideally 30-50%. Use air conditioning or a dehumidifier when needed.",
+        "standard": "US EPA: keep indoor humidity below 60% (ideally between 30 and 50%) relative humidity.",
+        "tip": "Check the reading first thing in the morning in the bedroom. That's often when it's highest.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Indoor relative humidity) · US EPA Brief Guide"
+      },
+      {
+        "zone": "Everyday Moisture",
+        "verb": "Think back",
+        "title": "Do you run the fan or open a window every time you shower?",
+        "prompt": "Showers put a lot of moisture into the air in <strong>just a few minutes</strong>.",
+        "yes": "Yes, every time",
+        "no": "Not always",
+        "why": "Cooking and showering add to indoor humidity. Without extraction, that moisture settles on the coldest surfaces.",
+        "how": "Run the bathroom fan or open the window when showering. Vent clothes dryers and stoves to the outside where possible.",
+        "standard": "US EPA: run the bathroom fan or open the window when showering. Vent moisture-producing appliances to the outside where possible.",
+        "tip": "Leave the fan running for a while after you finish, and the bathroom door closed so the moisture goes out, not into the house.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Ventilation) · US EPA Brief Guide · US EPA Mold Course, Chapter 2"
+      },
+      {
+        "zone": "Everyday Moisture",
+        "verb": "Go check",
+        "title": "When windows stream with condensation, do you deal with it the same day?",
+        "prompt": "Condensation left on frames and sills <strong>day after day</strong> gives mould what it needs.",
+        "yes": "Yes, wipe and ventilate",
+        "no": "I usually leave it",
+        "why": "Condensation on windows, walls or pipes is a sign that humidity is high, and repeated wetting of the same surfaces can lead to mould.",
+        "how": "Wipe condensation away, open windows or run ventilation, and look at why humidity is high (drying clothes indoors, cooking, showers). Cover cold water pipes with insulation.",
+        "standard": "US EPA: if you see condensation or moisture collecting on windows, walls or pipes, act quickly. Cover cold surfaces such as cold water pipes with insulation.",
+        "tip": "Keep a small cloth on each windowsill in colder months, so wiping becomes a 10-second habit.",
+        "src": "Source: Beneath the Surface - Dampness, Master Check (Condensation) · US EPA Brief Guide"
+      },
+      {
+        "zone": "Leaks & Water",
+        "verb": "Think back",
+        "title": "Last time something leaked, was it dry within 24-48 hours?",
+        "prompt": "Speed matters: wet materials dried <strong>within 24-48 hours</strong> usually don't grow mould.",
+        "yes": "Yes, dried fast",
+        "no": "It stayed damp longer",
+        "why": "Mould can start growing on materials that stay wet, so the first two days after a leak or spill matter most.",
+        "how": "Act quickly on any leak or spill. Fix the source, then dry the area completely with airflow, heating or a dehumidifier. Porous items like carpet or ceiling tiles that become mouldy may have to be thrown away.",
+        "standard": "US EPA: if wet or damp materials are dried 24-48 hours after a leak or spill, in most cases mould will not grow.",
+        "tip": "Take a dated photo of any leak as soon as you find it. It helps with repairs, landlords and insurance.",
+        "src": "Source: Beneath the Surface - Dampness, What you can do now · US EPA Brief Guide · US EPA Mold Course, Chapter 2"
+      },
+      {
+        "zone": "Mould Response",
+        "verb": "Think back",
+        "title": "Have you ever painted over a mould patch?",
+        "prompt": "Paint hides mould for a while, but <strong>doesn't remove it</strong>.",
+        "yes": "No, never",
+        "no": "Yes, I have",
+        "why": "Mould under paint can keep growing, and the moisture that caused it is still there.",
+        "how": "Clean the mould and dry the surface before painting. Find and fix the moisture source first, or it will come back.",
+        "standard": "US EPA: do not paint or caulk mouldy surfaces. Clean up the mould and dry the surfaces before painting.",
+        "tip": "If mould keeps coming back in the same spot, that spot is telling you where to look for the moisture source.",
+        "src": "Source: Beneath the Surface - Dampness, What you can do now · US EPA Brief Guide"
+      },
+      {
+        "zone": "Mould Response",
+        "verb": "Think back",
+        "title": "Do you know when mould is too big to clean yourself?",
+        "prompt": "There's a simple size guide: about <strong>0.9 m² (10 ft²)</strong>.",
+        "yes": "Yes, I know the size",
+        "no": "Not really",
+        "why": "Small areas can usually be cleaned by the occupant, but larger areas, a lot of water damage or contaminated water need a professional.",
+        "how": "Under about 0.9 m² (10 ft²), roughly 0.9 m x 0.9 m (3 ft x 3 ft): scrub hard surfaces with detergent and water, then dry completely. Wear an N-95 respirator, long gloves and goggles without ventilation holes. Larger areas, or damage from sewage or contaminated water: call a professional.",
+        "standard": "US EPA: if the mouldy area is less than about 10 square feet, in most cases you can handle the job yourself. Sewage or contaminated water: call a professional.",
+        "tip": "A standard sheet of printer paper is about 0.06 m² (0.67 ft²). If the patch is bigger than about 15 sheets, it's time for a professional.",
+        "src": "Source: Beneath the Surface - Dampness, What you can do now · US EPA Brief Guide · US EPA Mold Cleanup in Your Home"
+      },
+      {
+        "zone": "Hidden Places",
+        "verb": "Go check",
+        "title": "Is big furniture pushed tight against an outside wall?",
+        "prompt": "Tight furniture on a cold wall creates a <strong>still, cold pocket</strong> where condensation settles.",
+        "yes": "No, there's a gap",
+        "no": "Yes, it's tight",
+        "why": "Mould is frequently found in cold corners behind furniture on outside walls, where air can't move and condensation forms.",
+        "how": "Check behind wardrobes, beds and sofas on outside walls. Wipe and dry any condensation, and leave a gap so air can move behind the furniture.",
+        "standard": "US EPA: mould is frequently found on walls in cold corners behind furniture, where condensation forms.",
+        "tip": "Pull furniture out and check behind it when the seasons change. It takes five minutes.",
+        "src": "Source: Beneath the Surface - Dampness, Hidden Sweep (Behind furniture) · US EPA Mold Course, Chapter 2"
+      },
+      {
+        "zone": "Equipment",
+        "verb": "Go check",
+        "title": "Is your air-conditioning drain line clear and flowing?",
+        "prompt": "AC units remove water from the air, and it has to <strong>go somewhere</strong>.",
+        "yes": "Yes, checked and flowing",
+        "no": "Never checked / not sure",
+        "why": "A blocked drain line or dirty drip pan can overflow, leaving staining and damp below the indoor unit.",
+        "how": "Look below each indoor unit for staining or drips, and check that the drain line outlet is clear and flowing. For anything inside the unit, use a qualified technician. Do not run the system if you suspect it is contaminated with mould.",
+        "standard": "US EPA: keep air conditioning drip pans clean and the drain lines unobstructed and flowing properly. Do not run the HVAC system if you know or suspect it is contaminated with mould.",
+        "tip": "Find where your AC drain line comes out outside, and check it drips when the AC is running.",
+        "src": "Source: Beneath the Surface - Dampness, Hidden Sweep (AC units and condensate drains) · US EPA Brief Guide · US EPA Mold Cleanup in Your Home"
+      }
+    ]
+  }
+};
+const BRIDGE_STILL = {
+  "buyer": [
+    "<strong>The full 20-area Hidden Sweep</strong>: roof space, around windows and doors, boxed-in pipes, behind appliances and more.",
+    "<strong>20 Master Checks</strong> with investigation priorities, a findings register with 3-photo evidence, a dew point calculator and a printable report for your records."
+  ],
+  "owner": [
+    "<strong>A readings log</strong> to track humidity and condensation over time, with re-check dates for every finding.",
+    "<strong>20 Master Checks, a 20-area Hidden Sweep</strong>, 3-photo evidence, 16 cited safe steps and a printable report."
+  ]
+};
+const BEHAVIOUR_FIRST = {
+  "buyer": [0, 3, 7, 5],
+  "owner": [1, 2, 6, 0]
+};
+
+const STORE_KEY = 'snagtag-hidden-damp-check';
+let state = { idx:0, answers:[], started:false, product:null };
+let CHECKS = [];
+
+function loadState(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(raw){ const s = JSON.parse(raw); if(s && Array.isArray(s.answers)) state = s; }
+  }catch(e){}
+  if(state.product && PRODUCTS[state.product]) CHECKS = PRODUCTS[state.product].checks;
+  else state.product = null;
+}
+function saveState(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(state)); }catch(e){}
+}
+
+function hexToRgbStr(hex){
+  hex = hex.replace('#','');
+  const r = parseInt(hex.substring(0,2),16), g = parseInt(hex.substring(2,4),16), b = parseInt(hex.substring(4,6),16);
+  return r+','+g+','+b;
+}
+function applyProductTheme(key){
+  const p = PRODUCTS[key];
+  document.documentElement.style.setProperty('--accent', p.accent);
+  document.documentElement.style.setProperty('--accent-dark', p.accentDark);
+  document.documentElement.style.setProperty('--accent-rgb', hexToRgbStr(p.accent));
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.getElementById('progressWrap').style.display = (id==='screen-check') ? 'block' : 'none';
+  window.scrollTo({top:0, behavior:'instant' in window ? 'instant' : 'auto'});
+}
+
+document.querySelectorAll('.choose-card').forEach(card=>{
+  card.addEventListener('click', ()=>{
+    const key = card.getAttribute('data-key');
+    state = { idx:0, answers:[], started:true, product:key };
+    CHECKS = PRODUCTS[key].checks;
+    applyProductTheme(key);
+    saveState();
+    renderCheck(); show('screen-check');
+  });
+});
+
+function renderCheck(){
+  const i = state.idx;
+  const c = CHECKS[i];
+  document.getElementById('chkZone').textContent = c.zone;
+  document.getElementById('chkVerb').textContent = c.verb;
+  document.getElementById('chkTitle').textContent = c.title;
+  document.getElementById('chkPrompt').innerHTML = c.prompt;
+  document.getElementById('progressText').textContent = 'Check ' + (i+1) + ' of ' + CHECKS.length;
+  document.getElementById('progressPct').textContent = Math.round(((i)/CHECKS.length)*100) + '%';
+  document.getElementById('progressFill').style.width = ((i)/CHECKS.length*100) + '%';
+
+  const opts = document.getElementById('chkOpts');
+  opts.innerHTML = '';
+  const answered = state.answers[i] !== undefined && state.answers[i] !== null;
+
+  [['yes', c.yes, true], ['no', c.no, false]].forEach(([key,label,isSafe])=>{
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.setAttribute('role','button');
+    div.setAttribute('tabindex','0');
+    const isSelected = answered && state.answers[i] === isSafe;
+    div.innerHTML = '<span class="ic">'+(isSelected ? '✓' : '')+'</span><span>'+label+'</span>';
+    if(isSelected) div.classList.add('selected', isSafe ? 'safe':'flag');
+    const pick = ()=>{
+      state.answers[i] = isSafe;
+      saveState();
+      renderCheck();
+      applyReveal(c, isSafe);
+      document.getElementById('chkNavRow').style.display = 'flex';
+      document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+    };
+    div.addEventListener('click', pick);
+    div.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); pick(); } });
+    opts.appendChild(div);
+  });
+
+  const rv = document.getElementById('chkReveal');
+  if(answered){
+    applyReveal(c, state.answers[i]);
+    document.getElementById('chkNavRow').style.display = 'flex';
+    document.getElementById('chkNextBtn').textContent = (i === CHECKS.length-1) ? 'See my results →' : 'Next check →';
+  } else {
+    rv.classList.remove('show');
+    document.getElementById('chkNavRow').style.display = 'none';
+  }
+  document.getElementById('chkBackBtn').style.visibility = (i===0) ? 'hidden' : 'visible';
+}
+
+function applyReveal(c, isSafe){
+  const rv = document.getElementById('chkReveal');
+  rv.classList.add('show');
+  rv.classList.toggle('good', !!isSafe);
+  rv.classList.toggle('bad', !isSafe);
+  const kicker = document.getElementById('revealKicker');
+  const line1 = document.getElementById('revealWhy');
+  const line2 = document.getElementById('revealHow');
+  if(isSafe){
+    kicker.textContent = '✓ Good - that\'s sorted';
+    line1.textContent = 'That matches the guidance: ' + c.standard;
+    line2.textContent = c.tip;
+  } else {
+    kicker.textContent = '⚠ Worth fixing - here\'s why';
+    line1.textContent = c.why;
+    line2.textContent = c.how;
+  }
+  document.getElementById('revealSrc').textContent = c.src;
+}
+
+document.getElementById('chkNextBtn').addEventListener('click', ()=>{
+  if(state.idx < CHECKS.length-1){
+    state.idx++; saveState(); renderCheck(); show('screen-check');
+  } else {
+    document.getElementById('progressFill').style.width = '100%';
+    renderResult(); show('screen-result');
+  }
+});
+document.getElementById('chkBackBtn').addEventListener('click', ()=>{
+  if(state.idx>0){ state.idx--; saveState(); renderCheck(); show('screen-check'); }
+});
+document.getElementById('chkChooseBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null };
+  saveState();
+  show('screen-choose');
+});
+
+document.getElementById('startBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+document.getElementById('restartBtn').addEventListener('click', ()=>{
+  state = { idx:0, answers:[], started:true, product:null }; saveState();
+  show('screen-choose');
+});
+
+function escHtml(s){return String(s).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+
+document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
+  const p = PRODUCTS[state.product];
+  const safeItems = CHECKS.filter((c,i)=>state.answers[i]===true);
+  const flagItems = CHECKS.filter((c,i)=>state.answers[i]===false);
+  const dateStr = new Date().toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
+  const rowsFlag = flagItems.map(c=>'<div class="row flag"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.how)+'</span><em>'+escHtml(c.src)+'</em></div>').join('') || '<p style="color:#6B7A93">Nothing flagged - every check today was already sorted.</p>';
+  const rowsSafe = safeItems.map(c=>'<div class="row safe"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.tip)+'</span></div>').join('') || '<p style="color:#6B7A93">Nothing marked sorted yet.</p>';
+  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Hidden Damp Check - '+dateStr+'</title>'
+    + '<style>body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#F7FAFD;color:#16243F;max-width:640px;margin:0 auto;padding:32px 20px;line-height:1.6}'
+    + 'h1{font-size:1.5rem;margin:0 0 4px}p.sub{color:#6B7A93;margin:0 0 26px;font-size:14px}'
+    + 'h2{font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7A93;margin:26px 0 10px}'
+    + '.row{border-left:4px solid '+p.accent+';background:#fff;border-radius:0 10px 10px 0;padding:12px 16px;margin-bottom:10px}'
+    + '.row.safe{border-left-color:#2E7D4F}.row.flag{border-left-color:#A15C00}'
+    + '.row strong{display:block;font-size:14.5px;margin-bottom:3px}.row span{font-size:13.5px;color:#44546F;display:block}.row em{font-size:12px;color:#6B7A93;display:block;margin-top:4px}'
+    + '.cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,'+p.accent+','+p.accentDark+');color:#fff;font-weight:700;padding:13px 20px;border-radius:10px;text-decoration:none}'
+    + 'footer{margin-top:30px;padding-top:16px;border-top:1px solid #C9D6E8;font-size:11.5px;color:#6B7A93}</style></head><body>'
+    + '<h1>My Hidden Damp Check: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
+    + '<h2>Check today</h2>' + rowsFlag
+    + '<h2>Already sorted</h2>' + rowsSafe
+    + '<a class="cta" href="'+GUMROAD_URL+'" target="_blank" rel="noopener">Get the complete Dampness Investigation tool &rarr;</a>'
+    + '<footer>Educational general guidance from The Snag Tag, a NEBOSH &amp; OSHA trained HSE professional. Not a building survey. Saved locally to your device; nothing was sent anywhere.</footer>'
+    + '</body></html>';
+  const blob = new Blob([html], {type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'hidden-damp-check-' + state.product + '-results.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(()=>URL.revokeObjectURL(url), 2000);
+});
+
+function renderResult(){
+  const p = PRODUCTS[state.product];
+  const total = CHECKS.length;
+  const safeCount = state.answers.filter(a=>a===true).length;
+  const flagCount = state.answers.filter(a=>a===false).length;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statSafe').textContent = safeCount;
+  document.getElementById('statFlag').textContent = flagCount;
+
+  document.getElementById('resultHeadline').textContent =
+    flagCount === 0 ? total + ' for ' + total + ' - genuinely well done' :
+    flagCount <= 2 ? 'Close. A couple of things to look at' :
+    'You just found real gaps';
+
+  const zones = {};
+  CHECKS.forEach((c,i)=>{
+    if(!zones[c.zone]) zones[c.zone] = {safe:0,total:0};
+    zones[c.zone].total++;
+    if(state.answers[i]===true) zones[c.zone].safe++;
+  });
+  const zb = document.getElementById('zoneBars');
+  zb.innerHTML = '';
+  Object.keys(zones).forEach(z=>{
+    const d = zones[z];
+    const pct = Math.round((d.safe/d.total)*100);
+    const row = document.createElement('div');
+    row.className = 'zbar-row';
+    row.innerHTML = '<div class="zbar-label">'+z+'</div><div class="zbar-track"><div class="zbar-fill'+(pct<100?' partial':'')+'" style="width:'+pct+'%"></div></div><div class="zbar-count">'+d.safe+'/'+d.total+'</div>';
+    zb.appendChild(row);
+  });
+
+  const flagWrap = document.getElementById('findingsFlag');
+  const safeWrap = document.getElementById('findingsSafe');
+  flagWrap.innerHTML = ''; safeWrap.innerHTML = '';
+  if(flagCount===0){
+    flagWrap.innerHTML = '<p style="font-size:14px;color:var(--ink-soft)">Nothing flagged today - see the sorted list below.</p>';
+  }
+  CHECKS.forEach((c,i)=>{
+    const isSafe = state.answers[i]===true;
+    const div = document.createElement('div');
+    div.className = 'finding ' + (isSafe?'safe':'flag');
+    div.innerHTML = '<div class="fic">'+(isSafe?'✓':'!')+'</div><div><div class="ft">'+c.title.replace(/\?$/,'')+'</div><div class="fd">'+(isSafe? 'Sorted - keep it that way.' : c.how)+'</div></div>';
+    (isSafe ? safeWrap : flagWrap).appendChild(div);
+  });
+
+  const behaviourFirst = BEHAVIOUR_FIRST[state.product] || [];
+  let qwIndex = behaviourFirst.find(i => state.answers[i]===false);
+  if(qwIndex === undefined) qwIndex = CHECKS.findIndex((c,i)=>state.answers[i]===false);
+  if(qwIndex === undefined || qwIndex === -1) qwIndex = 1;
+  const qw = CHECKS[qwIndex];
+  document.getElementById('qwTitle').textContent = qw.title.replace(/\?$/,'');
+  document.getElementById('qwBody').textContent = qw.how;
+
+  const bridgeBody = flagCount === 0
+    ? 'You\'re sorted on all ' + total + ' of today\'s checks. The full Beneath the Surface Dampness Investigation tool goes much further: every hidden place, a findings register with photo evidence, and a printable report you can share with a surveyor, landlord or seller.'
+    : 'Today\'s check found ' + flagCount + ' of the most commonly missed damp gaps. The full Beneath the Surface Dampness Investigation tool helps you record each one properly, with photo evidence, measurements and a printable report, so you know when a professional should take a closer look.';
+  document.getElementById('bridgeBody').textContent = bridgeBody;
+
+  const stillItems = BRIDGE_STILL[state.product] || [];
+  document.getElementById('bridgeStillList').innerHTML = stillItems.map(li=>'<li>'+li+'</li>').join('');
+
+  document.getElementById('proBtn').href = GUMROAD_URL;
+  document.getElementById('proBtn').textContent = 'Get the Dampness Investigation tool →';
+}
+
+function applyMode(m){
+  document.body.setAttribute('data-mode', m);
+  document.getElementById('modeToggle').textContent = m==='dark' ? '☀️' : '🌙';
+  try{ localStorage.setItem(STORE_KEY+'-mode', m); }catch(e){}
+}
+document.getElementById('modeToggle').addEventListener('click', ()=>{
+  applyMode(document.body.getAttribute('data-mode')==='dark' ? 'light' : 'dark');
+});
+(function initMode(){
+  let m = 'light';
+  try{ m = localStorage.getItem(STORE_KEY+'-mode') || 'light'; }catch(e){}
+  applyMode(m);
+})();
+
+loadState();
+if(state.product) applyProductTheme(state.product);
+if(state.started && state.product && state.idx < CHECKS.length && !(state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null))){
+  renderCheck(); show('screen-check');
+} else if(state.started && state.product && state.answers.length===CHECKS.length && state.answers.every(a=>a!==undefined && a!==null)){
+  renderResult(); show('screen-result');
+} else if(state.started && !state.product){
+  show('screen-choose');
+}
+</script>
+</body>
+</html>
