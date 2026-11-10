@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>The Hidden Damp Check - Beneath the Surface by The Snag Tag</title>
+<title>Behind the Wardrobe Taster - Hidden Damp &amp; Mould Investigation | Beneath the Surface by The Snag Tag</title>
 <meta name="description" content="8 real checks for hidden damp, for home buyers or home owners. Free, 5 minutes, no signup - from The Snag Tag.">
 <style>
 :root{
-  --accent:#0B7F97; --accent-dark:#2D5B9A; --accent-rgb:11,127,151;
+  --accent:#3E8E8E; --accent-dark:#0E5E66; --accent-rgb:62,142,142;
 }
 body[data-mode="light"], body{
   --bg:#F7FAFD; --surface:#FFFFFF; --surface-2:#E8F0FA; --tile:#F7FAFD;
@@ -186,7 +186,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     <span class="topbar-logo"><svg viewBox="0 0 24 24" fill="none" stroke="#5CC6DA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M12 12c-1.6 2-2.4 3.2-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1-.8-2.2-2.4-4.2z"/></svg></span>
     <div>
       <div class="topbar-name">Beneath the <span>Surface</span></div>
-      <div class="topbar-sub">by The Snag Tag &middot; Hidden Damp Check</div>
+      <div class="topbar-sub">by The Snag Tag &middot; Behind the Wardrobe Taster</div>
     </div>
   </div>
   <div class="topbar-tools">
@@ -205,7 +205,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     <div class="hook">
       <span class="hook-badge">🏠 For home buyers and home owners</span>
       <h1>Look where damp <em>actually hides.</em></h1>
-      <p class="lede">Real checks, pulled from The Snag Tag's Beneath the Surface Dampness Investigation tool. No signup, no scare tactics, just a fast, honest look at what most people miss.</p>
+      <p class="lede">Real points, pulled from Behind the Wardrobe, the Full Edition by The Snag Tag. No signup, no scare tactics, just a fast, honest look at what most people miss.</p>
       <div class="hook-facts">
         <div class="hook-fact"><div class="n">8</div><div class="t">real checks</div></div>
         <div class="hook-fact"><div class="n">~5</div><div class="t">minutes</div></div>
@@ -249,7 +249,7 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
 
   <section class="screen" id="screen-result">
     <div class="result-head">
-      <div class="kicker">Your Hidden Damp Check</div>
+      <div class="kicker">Your Behind the Wardrobe Taster</div>
       <h1 id="resultHeadline">Here's what you found</h1>
     </div>
 
@@ -274,14 +274,14 @@ body[data-mode="dark"] .hook-badge{color:#8CB4E6}
     </div>
 
     <div class="bridge">
-      <div class="bk">The complete system</div>
+      <div class="bk">The Full Edition</div>
       <h3 id="bridgeHeadline">You found the gaps. Here's what closes them.</h3>
       <p id="bridgeBody"></p>
       <div class="still" id="bridgeStill">
         <h4>Today's check opened part of the picture. Here's what's still closed:</h4>
         <ul id="bridgeStillList"></ul>
       </div>
-      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Get the complete tool &rarr;</a>
+      <a class="btn btn-primary" id="proBtn" href="#" target="_blank" rel="noopener">Open Behind the Wardrobe - Full Edition &rarr;</a>
       <div class="note">One-time purchase. Works offline, on any device, no subscription.</div>
       <button class="btn btn-ghost" id="saveResultsBtn" type="button" style="margin-top:12px;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25);color:#fff">Not ready yet? Save my results instead &rarr;</button>
       <div class="note">Downloads a copy of exactly what you found today, free, no email needed. Nothing here disappears, but nothing reminds you either, so keep it somewhere you'll see it.</div>
@@ -304,8 +304,8 @@ const PRODUCTS = {
   "buyer": {
     "label": "Pre-Purchase",
     "ageRange": "Viewing or buying a home",
-    "accent": "#0B7F97",
-    "accentDark": "#2D5B9A",
+    "accent": "#3E8E8E",
+    "accentDark": "#0E5E66",
     "checks": [
       {
         "zone": "Hidden Places",
@@ -416,8 +416,8 @@ const PRODUCTS = {
   "owner": {
     "label": "Maintenance",
     "ageRange": "Living in or looking after a home",
-    "accent": "#0B7F97",
-    "accentDark": "#2D5B9A",
+    "accent": "#3E8E8E",
+    "accentDark": "#0E5E66",
     "checks": [
       {
         "zone": "Everyday Moisture",
@@ -529,11 +529,11 @@ const PRODUCTS = {
 const BRIDGE_STILL = {
   "buyer": [
     "<strong>The full 20-area Hidden Sweep</strong>: roof space, around windows and doors, boxed-in pipes, behind appliances and more.",
-    "<strong>20 Master Checks</strong> with investigation priorities, a findings register with 3-photo evidence, a dew point calculator and a printable report for your records."
+    "<strong>20 Master Checks</strong> with investigation priorities, a Evidence File with 3-photo evidence, a dew point calculator and a printable record for your records."
   ],
   "owner": [
     "<strong>A readings log</strong> to track humidity and condensation over time, with re-check dates for every finding.",
-    "<strong>20 Master Checks, a 20-area Hidden Sweep</strong>, 3-photo evidence, 16 cited safe steps and a printable report."
+    "<strong>20 Master Checks, a 20-area Hidden Sweep</strong>, 3-photo evidence, 16 cited safe steps and a printable record."
   ]
 };
 const BEHAVIOUR_FIRST = {
@@ -690,7 +690,7 @@ document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
   const dateStr = new Date().toLocaleDateString(undefined, {year:'numeric',month:'long',day:'numeric'});
   const rowsFlag = flagItems.map(c=>'<div class="row flag"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.how)+'</span><em>'+escHtml(c.src)+'</em></div>').join('') || '<p style="color:#6B7A93">Nothing flagged - every check today was already sorted.</p>';
   const rowsSafe = safeItems.map(c=>'<div class="row safe"><strong>'+escHtml(c.title.replace(/\?$/,''))+'</strong><span>'+escHtml(c.tip)+'</span></div>').join('') || '<p style="color:#6B7A93">Nothing marked sorted yet.</p>';
-  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Hidden Damp Check - '+dateStr+'</title>'
+  const html = '<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>My Behind the Wardrobe Taster - '+dateStr+'</title>'
     + '<style>body{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;background:#F7FAFD;color:#16243F;max-width:640px;margin:0 auto;padding:32px 20px;line-height:1.6}'
     + 'h1{font-size:1.5rem;margin:0 0 4px}p.sub{color:#6B7A93;margin:0 0 26px;font-size:14px}'
     + 'h2{font-size:1rem;text-transform:uppercase;letter-spacing:.06em;color:#6B7A93;margin:26px 0 10px}'
@@ -699,7 +699,7 @@ document.getElementById('saveResultsBtn').addEventListener('click', ()=>{
     + '.row strong{display:block;font-size:14.5px;margin-bottom:3px}.row span{font-size:13.5px;color:#44546F;display:block}.row em{font-size:12px;color:#6B7A93;display:block;margin-top:4px}'
     + '.cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,'+p.accent+','+p.accentDark+');color:#fff;font-weight:700;padding:13px 20px;border-radius:10px;text-decoration:none}'
     + 'footer{margin-top:30px;padding-top:16px;border-top:1px solid #C9D6E8;font-size:11.5px;color:#6B7A93}</style></head><body>'
-    + '<h1>My Hidden Damp Check: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
+    + '<h1>My Behind the Wardrobe Taster: ' + p.label + '</h1><p class="sub">Saved '+dateStr+' &middot; Beneath the Surface by The Snag Tag</p>'
     + '<h2>Check today</h2>' + rowsFlag
     + '<h2>Already sorted</h2>' + rowsSafe
     + '<a class="cta" href="'+GUMROAD_URL+'" target="_blank" rel="noopener">Get the complete Dampness Investigation tool &rarr;</a>'
@@ -770,15 +770,15 @@ function renderResult(){
   document.getElementById('qwBody').textContent = qw.how;
 
   const bridgeBody = flagCount === 0
-    ? 'You\'re sorted on all ' + total + ' of today\'s checks. The full Beneath the Surface Dampness Investigation tool goes much further: every hidden place, a findings register with photo evidence, and a printable report you can share with a surveyor, landlord or seller.'
-    : 'Today\'s check found ' + flagCount + ' of the most commonly missed damp gaps. The full Beneath the Surface Dampness Investigation tool helps you record each one properly, with photo evidence, measurements and a printable report, so you know when a professional should take a closer look.';
+    ? 'You\'re sorted on all ' + total + ' of today\'s checks. Behind the Wardrobe, the Full Edition, goes much further: every hidden place, an Evidence File with photo evidence, and a printable record you can share with a surveyor, landlord or seller.'
+    : 'Today\'s check found ' + flagCount + ' of the most commonly missed damp gaps. Behind the Wardrobe, the Full Edition, helps you record each one properly, with photo evidence, measurements and a printable record, so you know when a professional should take a closer look.';
   document.getElementById('bridgeBody').textContent = bridgeBody;
 
   const stillItems = BRIDGE_STILL[state.product] || [];
   document.getElementById('bridgeStillList').innerHTML = stillItems.map(li=>'<li>'+li+'</li>').join('');
 
   document.getElementById('proBtn').href = GUMROAD_URL;
-  document.getElementById('proBtn').textContent = 'Get the Dampness Investigation tool →';
+  document.getElementById('proBtn').textContent = 'Open Behind the Wardrobe - Full Edition →';
 }
 
 function applyMode(m){
